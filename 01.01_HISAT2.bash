@@ -7,12 +7,12 @@
 # $9 [raw_R1.fastq]
 # $10 [raw_R2.fastq]
 
-while getopts a:r:g:p flag
+while getopts a:r:g:p: flag
 do
     case "${flag}" in
         a) adapter=${OPTARG};;
         r) tRNArRNA=${OPTARG};;
-        G) genome=${OPTARG};;
+        g) genome=${OPTARG};;
         p) prefix=${OPTARG};;
     esac
 done
