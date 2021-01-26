@@ -3,7 +3,7 @@
 # -T [TEgtf=TEs.gtf]
 # -p [prefix=prefix_of_sample]
 
-while getopts b:T:G:p flag
+while getopts T:p: flag
 do
     case "${flag}" in
         T) TEgtf=${OPTARG};;
@@ -99,5 +99,22 @@ cat ${prefix}_BedCov_TEhaveSenseRead.txt ${prefix}_BedCov_TEhaveNoSenseRead.txt 
 | sort -k1 \
 > ${prefix}_BedCov_OverlapBasePair_senseRead.txt;
 
-rm -f ${prefix}_temp*.txt
+rm -f ${prefix}_temp*.txt;
 rm -f ${prefix}_TEhave*.bed;
+
+#content of “${prefix}_BedCov_OverlapBasePair_senseRead.txt”:
+#column 1: chr
+#column 2: source
+#column 3: feature
+#column 4: start
+#column 5: end
+#column 6: score
+#column 7: str (strand)
+#column 8: dot
+#column 9: TE_id
+#column 10: count (read count)
+#column 11: coveredTEbp (MapTEbase, sum of the mapped bases of the TE)
+#column 12: TElength (length of TE)
+#column 13: breadthCov (breadth of coverage)
+#column 14: readbpsum (Sum of MapReadBase)
+#column 15: depth (average read depth)

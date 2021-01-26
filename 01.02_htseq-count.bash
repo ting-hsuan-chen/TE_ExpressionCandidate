@@ -5,7 +5,7 @@
 # -G [GENEgtf=gene.gtf]
 # -p [prefix=prefix_of_sample]
 
-while getopts b:T:G:p flag
+while getopts b:T:G:p: flag
 do
     case "${flag}" in
         b) bam=${OPTARG};;
