@@ -4,7 +4,6 @@
 #The order of the column start with control libraries, and then the experimental conditions
 #Here we have one control and two expermintal conditions. Each conditions has four timepoints, eich with three replicates
 
-
 #select expr. TEs from htseq-count data
 #htseq-count reports “mapped read pairs” when analysing pair-end sequencing data.
 #the threshold of the pipeline is set to 10 reads, i.e. at least more than 5 read pairs

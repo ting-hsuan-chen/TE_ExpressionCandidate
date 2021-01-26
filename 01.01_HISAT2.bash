@@ -1,11 +1,11 @@
 #!/bin/bash
-#usage: ./01.01_HISAT2.bash [raw_R1.fastq] [raw_R2.fastq] -a [adapter.fasta] -r [tRNA_rRNA.fasta] -g [reference_genome.fasta] -p [prefix_of_sample]
-# $1 [raw_R1.fastq]
-# $2 [raw_R2.fastq]
+#usage: ./01.01_HISAT2.bash -a [adapter.fasta] -r [tRNA_rRNA.fasta] -g [reference_genome.fasta] -p [prefix_of_sample] [raw_R1.fastq] [raw_R2.fastq]
 # -a [adapter=adapter.fasta]
 # -r [tRNArRNA=tRNA_rRNA.fasta]
 # -g [genome=reference_genome.fasta]
 # -p [prefix=prefix_of_sample]
+# $9 [raw_R1.fastq]
+# $10 [raw_R2.fastq]
 
 while getopts a:r:g:p flag
 do
@@ -23,8 +23,8 @@ fastq-mcf -f \
 -o ${prefix}_clean_R2.fastq \
 -l 50 -q 15 -t 0.1 -C 1000000 \
 $adapter \
-$1 \
-$2;
+$9 \
+$10;
 
 fastqc ${prefix}_clean_*.fastq -o QC.dir;
 
